@@ -1,4 +1,5 @@
 ﻿#region license
+
 // Razor: An Ultima Online Assistant
 // Copyright (c) 2022 Razor Development Community on GitHub <https://github.com/markdwags/Razor>
 // 
@@ -14,10 +15,10 @@
 // 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 #endregion
 
 using System.Text;
-using System.Windows.Forms;
 
 namespace Assistant.Gumps.Internal
 {
@@ -68,8 +69,7 @@ namespace Assistant.Gumps.Internal
             AddTextEntry(219, 118, 116, 20, 62, (int)MobileInfoButtons.Name, $"{mobile.Name}");
             AddTextEntry(219, 142, 116, 20, 62, (int)MobileInfoButtons.Serial, $"{mobile.Serial}");
             AddTextEntry(219, 166, 116, 20, 62, (int)MobileInfoButtons.Hue, $"{mobile.Hue}");
-
-            AddTextEntry(219, 190, 116, 20, 62, (int) MobileInfoButtons.Body, $"{mobile.Body}");
+            AddTextEntry(219, 190, 116, 20, 62, (int)MobileInfoButtons.Body, $"{mobile.Body}");
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Position: {_mobile.Position}");
@@ -87,19 +87,19 @@ namespace Assistant.Gumps.Internal
             switch (buttonId)
             {
                 case (int)MobileInfoButtons.CopyName:
-                    Clipboard.SetText(_mobile.Name);
+                    ClipboardHelper.SetText(_mobile.Name);
                     World.Player.SendMessage(MsgLevel.Force, Language.Format(LocString.ScriptCopied, _mobile.Name), false);
                     break;
                 case (int)MobileInfoButtons.CopySerial:
-                    Clipboard.SetText(_mobile.Serial.ToString());
+                    ClipboardHelper.SetText(_mobile.Serial.ToString());
                     World.Player.SendMessage(MsgLevel.Force, Language.Format(LocString.ScriptCopied, _mobile.Serial.ToString()), false);
                     break;
                 case (int)MobileInfoButtons.CopyHue:
-                    Clipboard.SetText(_mobile.Hue.ToString());
+                    ClipboardHelper.SetText(_mobile.Hue.ToString());
                     World.Player.SendMessage(MsgLevel.Force, Language.Format(LocString.ScriptCopied, _mobile.Hue.ToString()), false);
                     break;
                 case (int)MobileInfoButtons.CopyBody:
-                    Clipboard.SetText(_mobile.Body.ToString());
+                    ClipboardHelper.SetText(_mobile.Body.ToString());
                     World.Player.SendMessage(MsgLevel.Force, Language.Format(LocString.ScriptCopied, _mobile.Body.ToString()), false);
                     break;
                 case (int)MobileInfoButtons.Okay:
